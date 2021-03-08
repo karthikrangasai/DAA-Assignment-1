@@ -1,0 +1,25 @@
+{
+	"files.associations": {
+		"iosfwd": "cpp",
+		"*.tcc": "cpp",
+		"system_error": "cpp"
+	},
+	"[python]": {
+		"editor.tabSize": 4,
+		"editor.insertSpaces": false,
+	},
+	"[c]": {
+		"editor.tabSize": 4,
+		"editor.insertSpaces": false,
+		"editor.defaultFormatter": "ms-vscode.cpptools"
+	},
+	"[cpp]": {
+		"editor.tabSize": 4,
+		"editor.insertSpaces": false,
+		"editor.defaultFormatter": "ms-vscode.cpptools"
+	},
+	"editor.formatOnSave": true,
+	"editor.formatOnPaste": true,
+	"editor.formatOnType": true,
+	"editor.detectIndentation": false,
+}

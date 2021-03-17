@@ -1,12 +1,7 @@
 #ifndef TYPES_H
 #define TYPES_H
 
-#include <fstream>
-#include <iomanip>
-#include <ios>
-#include <iostream>
-#include <limits>
-#include <set>
+#include <bits/stdc++.h>
 
 using namespace std;
 
@@ -14,100 +9,142 @@ using namespace std;
 extern "C" {
 #endif
 
-typedef long double real;
-#define INFINITY numeric_limits<long double>::infinity()
+const int INF = 1e9;
 
 typedef long double Coord;
 
-typedef struct Point {
-    Coord x;
-    Coord y;
-    Point(Coord _x, Coord _y) {
-        x = _x;
-        y = _y;
-    }
-} Point;
+// typedef struct Point {
+//     Coord x;
+//     Coord y;
+//     Point(Coord _x, Coord _y) {
+//         x = _x;
+//         y = _y;
+//     }
+// } Point;
 
-typedef struct Interval {
-    Coord bottom;
-    Coord top;
-    Interval(Coord _bottom, Coord _top) {
-        bottom = _bottom;
-        top = _top;
+// int dum;
+
+typedef struct interval_t {
+    int lo, hi;
+    interval_t(int lo = INF, int hi = -INF) {
+        this->lo = lo;
+        this->hi = hi;
     }
-} Interval;
+    bool operator==(const interval_t &other) const {
+        return tie(lo, hi) == tie(other.lo, other.hi);
+    }
+    bool operator!=(const interval_t &other) const {
+        return tie(lo, hi) != tie(other.lo, other.hi);
+    }
+    bool operator<(const interval_t &other) const {
+        return tie(lo, hi) < tie(other.lo, other.hi);
+    }
+    bool operator>(const interval_t &other) const {
+        return tie(lo, hi) > tie(other.lo, other.hi);
+    }
+    bool operator<=(const interval_t &other) const {
+        return tie(lo, hi) <= tie(other.lo, other.hi);
+    }
+    bool operator>=(const interval_t &other) const {
+        return tie(lo, hi) >= tie(other.lo, other.hi);
+    }
+    void print() {
+        cout << "(" << lo << "," << hi << ")\n";
+    }
+} interval_t;
 
 typedef struct LineSegment {
-    Interval interval;
+    interval_t interval;
     Coord coord;
 } LineSegment;
 
-// typedef struct PointRectangle {
-//     Coord x_left;
-//     Coord x_right;
-//     Coord y_bottom;
-//     Coord y_top;
-// } PointRectangle;
-
-// typedef struct IntervalRectangle {
-//     Interval x_interval;
-//     Interval y_interval;
-// } IntervalRectangle;
-
-typedef struct Rectangle {
-    Coord x_left;
-    Coord x_right;
-    Coord y_bottom;
-    Coord y_top;
-    Interval x_interval;
-    Interval y_interval;
-    bool isInterval;
-    // PointRectangle pointRectangle;
-    // IntervalRectangle intervalRectangle;
-    Rectangle(Interval x, Interval y) {
-        x_interval = x;
-        y_interval = y;
-        isInterval = true;
+typedef struct rect_t {
+    interval_t x_interval, y_interval;
+    int idx;
+    rect_t(interval_t x_interval, interval_t y_interval, int idx) {
+        this->x_interval = x_interval;
+        this->y_interval = y_interval;
+        this->idx = idx;
     }
-    Rectangle(Coord _x_left, Coord _x_right, Coord _y_bottom, Coord _y_top) {
-        x_left = _x_left;
-        x_right = _x_right;
-        y_bottom = _y_bottom;
-        y_top = _y_top;
-        isInterval = false;
-    }
-} Rectangle;
+} rect_t;
 
-enum EdgeType {
+typedef enum edgeType {
+    UNDEF = -1,
     LEFT,
     RIGHT,
     BOTTOM,
     TOP
-};
+} edgeType;
 
-typedef struct Edge {
-    Interval interval;
-    Coord coordinate;
-    EdgeType side;
-} Edge;
+typedef struct edge_t {
+    interval_t interval;
+    int coord, idx;
+    edgeType typ;
+    edge_t(interval_t interval, int coord = -INF, int idx = -1, edgeType typ = UNDEF) {
+        this->interval = interval;
+        this->coord = coord;
+        this->idx = idx;
+        this->typ = typ;
+    }
+    bool operator==(const edge_t &other) const {
+        return tie(coord, typ) == tie(other.coord, other.typ);
+    }
+    bool operator!=(const edge_t &other) const {
+        return tie(coord, typ) != tie(other.coord, other.typ);
+    }
+    bool operator<=(const edge_t &other) const {
+        return tie(coord, typ) <= tie(other.coord, other.typ);
+    }
+    bool operator>=(const edge_t &other) const {
+        return tie(coord, typ) >= tie(other.coord, other.typ);
+    }
+    bool operator<(const edge_t &other) const {
+        return tie(coord, typ) < tie(other.coord, other.typ);
+    }
+    bool operator>(const edge_t &other) const {
+        return tie(coord, typ) > tie(other.coord, other.typ);
+    }
+} edge_t;
 
-typedef struct Stripe {
-    Interval x_interval;
-    Interval y_interval;
-    set<Interval> x_union;
-} Stripe;
+typedef struct tree_t {
+    int val;
+    edgeType typ;
+    tree_t *lt, *rt;
+    tree_t(int val = 0, tree_t *lt = nullptr, tree_t *rt = nullptr, edgeType typ = UNDEF) {
+        this->val = val;
+        this->lt = lt;
+        this->rt = rt;
+        this->typ = typ;
+    }
+} tree_t;
 
-set<Point> _union(set<Rectangle> R);
-set<Coord> y_set(set<Rectangle> R);
-set<Interval> partition(set<Coord> Y);
+typedef struct stripe_t {
+    interval_t x_interval, y_interval;
+    tree_t *tre;
+    int measure;
+    vector<pair<int, edgeType> > J;
+    stripe_t(interval_t x_int, interval_t y_int) {
+        x_interval = x_int;
+        y_interval = y_int;
+        tre = nullptr;
+        measure = 0;
+    }
+    void print() {
+        cout << "{((" << x_interval.lo << "," << x_interval.hi << "),(" << y_interval.lo << "," << y_interval.hi << ")," << measure << "}\n";
+    }
+} stripe_t;
 
-set<Coord> x_proj(set<Point> P);
-set<Interval> intervals(set<Coord> C);
-set<Stripe> stripes(set<Rectangle> R, Rectangle f);
-
-real measure(set<Stripe> S);
-set<LineSegment> contour_pieces(Edge h, set<Stripe> S);
-set<LineSegment> contour(set<Edge> H, set<Stripe> S);
+typedef struct result_t {
+    vector<stripe_t> S;
+    vector<pair<interval_t, int> > L, R;
+    vector<int> P;
+    result_t(vector<pair<interval_t, int> > L, vector<pair<interval_t, int> > R, vector<int> P, vector<stripe_t> S) {
+        this->L = L;
+        this->R = R;
+        this->P = P;
+        this->S = S;
+    }
+} result_t;
 
 #ifdef __cplusplus
 }

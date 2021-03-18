@@ -134,17 +134,18 @@ typedef struct stripe_t {
     }
 } stripe_t;
 
-typedef struct result_t {
+typedef struct result_t{
     vector<stripe_t> S;
-    vector<pair<interval_t, int> > L, R;
+    vector<pair<interval_t,int> >L,R;
     vector<int> P;
-    result_t(vector<pair<interval_t, int> > L, vector<pair<interval_t, int> > R, vector<int> P, vector<stripe_t> S) {
+    result_t(){}
+    result_t(vector<pair<interval_t,int> > L, vector<pair<interval_t,int> > R, vector<int> P, vector<stripe_t> S){
         this->L = L;
         this->R = R;
         this->P = P;
         this->S = S;
-    }
-} result_t;
+    } 
+}result_t;
 
 #ifdef __cplusplus
 }

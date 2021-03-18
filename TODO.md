@@ -1,0 +1,5 @@
+- [x] Automatically generate HTML file
+- [ ] Add time analysis examples
+	- [ ] num_rect vs time_taken
+	- [ ] nlogn graph
+- [ ] Doxygen

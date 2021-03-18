@@ -2,7 +2,8 @@
 	"files.associations": {
 		"iosfwd": "cpp",
 		"*.tcc": "cpp",
-		"system_error": "cpp"
+		"system_error": "cpp",
+		"chrono": "cpp"
 	},
 	"[python]": {
 		"editor.tabSize": 4,

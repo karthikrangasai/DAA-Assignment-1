@@ -1,0 +1,166 @@
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>Document</title>
+		<style>
+			html,
+			body {
+				margin: 0;
+				padding: 0;
+			}
+			.nav-style {
+				width: 50%;
+				margin: 0 auto;
+				text-align: center;
+			}
+			.section {
+				display: flex;
+				flex-direction: column;
+				width: 98%;
+				text-align: center;
+				border: 3px solid black;
+				margin: 5px auto;
+			}
+			.sub-section {
+				display: flex;
+				flex-direction: row;
+				justify-content: space-evenly;
+				width: 95%;
+				text-align: center;
+				border: 3px solid black;
+				margin: 5px auto;
+			}
+			.diagram-div {
+				display: flex;
+				flex-direction: row;
+				justify-content: space-evenly;
+				margin: 10px 0;
+			}
+			.diagram-div-img {
+				display: flex;
+				width: 40%;
+				justify-content: center;
+				height: 400px;
+			}
+			.diagram-div-text {
+				text-align: center;
+				display: flex;
+				flex-direction: column;
+				width: 60%;
+				border: 1px black solid;
+			}
+			ul {
+				list-style-type: none;
+			}
+			ul>li {
+				margin: 15px 0;
+				font-size: 30px;
+			}
+		</style>
+	</head>
+	<body>
+		<nav class="nav-style">
+			<h1>CS F364 - Design and Analysis of Algorithms - Assignment 1</h1>
+			<h2>Varun Parthasarathy - 2017B3A70515H</h2>
+			<h2>G Sathyaram - 2017B2A71335H</h2>
+			<h2>Siddarth Gopalakrishnan - 2017B3A71379H</h2>
+			<h2>Sivaraman Karthik Rangasai - 2017B4A71499H</h2>
+		</nav>
+		<div class="section">
+			<div><div><h1>Time Analysis of our Code</h1></div></div>
+			<div><img src="./time_analysis/time_analysis_4000_points.png" style="width: 100%;"></div>
+		</div>
+		<div class="section">
+			<div style="text-align: center;margin: 5px 0;"><h1>Contour Visualisations</h1></div>
+			<div class="sub-section">
+				<div class="diagram-div-img"><img src="./output_visualisations/images/simple.png"></div>
+				<div class="diagram-div-text">
+					<div><h1>Simple Shape Visualisation</h1></div>
+					<div>
+						<ul>
+							<li>Number of Rectangles: 3</li>
+							<li>Measure: 216</li>
+							<li>Time taken: 742
+microseconds</li>
+						</ul>
+					</div>
+				</div>
+			</div>
+			<div class="sub-section">
+				<div class="diagram-div-img"><img src="./output_visualisations/images/bars.png"></div>
+				<div class="diagram-div-text">
+					<div><h1>Bars Shape Visualisation</h1></div>
+					<div>
+						<ul>
+							<li>Number of Rectangles: 4</li>
+							<li>Measure: 80</li>
+							<li>Time taken: 312
+microseconds</li>
+						</ul>
+					</div>
+				</div>
+			</div>
+			<div class="sub-section">
+				<div class="diagram-div-img"><img src="./output_visualisations/images/smiley.png"></div>
+				<div class="diagram-div-text">
+					<div><h1>Smiley Shape Visualisation</h1></div>
+					<div>
+						<ul>
+							<li>Number of Rectangles: 31</li>
+							<li>Measure: 121</li>
+							<li>Time taken: 2812
+microseconds</li>
+						</ul>
+					</div>
+				</div>
+			</div>
+			<div class="sub-section">
+				<div class="diagram-div-img"><img src="./output_visualisations/images/saitama.png"></div>
+				<div class="diagram-div-text">
+					<div><h1>Saitama Shape Visualisation</h1></div>
+					<div>
+						<ul>
+							<li>Number of Rectangles: 30</li>
+							<li>Measure: 108</li>
+							<li>Time taken: 2821
+microseconds</li>
+						</ul>
+					</div>
+				</div>
+			</div>
+			<div class="sub-section">
+				<div class="diagram-div-img"><img src="./output_visualisations/images/pikachu.png"></div>
+				<div class="diagram-div-text">
+					<div><h1>Pikachu Shape Visualisation</h1></div>
+					<div>
+						<ul>
+							<li>Number of Rectangles: 46</li>
+							<li>Measure: 126</li>
+							<li>Time taken: 4281
+microseconds</li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="section">
+			<div><h1>Issues in Coding</h1></div>
+			<div>
+				<ul>
+					<li>- Maintaining lower constant in Linear Complexity for Merge function.</li>
+					<li>- Generation of random testcases for stress testing and checking correctness of program.</li>
+					<li>- Careful generation of testcases for aesthetic outputs.</li>
+				</ul>
+			</div>
+		</div>
+		<div class="section">
+			<div><h1>References</h1></div>
+			<div style="font-size: 20px;">
+				<ul>
+					<li><a href="https://link.springer.com/article/10.1007/BF00264251#citeas">Guting, R.H. Optimal divide-and-conquer to compute measure and contour for a set of iso-rectangles.</a></li>				</ul>
+			</div>
+		</div>
+	</body>
+</html>

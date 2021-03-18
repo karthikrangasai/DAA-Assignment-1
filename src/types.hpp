@@ -13,17 +13,6 @@ const int INF = 1e9;
 
 typedef long double Coord;
 
-// typedef struct Point {
-//     Coord x;
-//     Coord y;
-//     Point(Coord _x, Coord _y) {
-//         x = _x;
-//         y = _y;
-//     }
-// } Point;
-
-// int dum;
-
 typedef struct interval_t {
     int lo, hi;
     interval_t(int lo = INF, int hi = -INF) {
@@ -134,18 +123,18 @@ typedef struct stripe_t {
     }
 } stripe_t;
 
-typedef struct result_t{
+typedef struct result_t {
     vector<stripe_t> S;
-    vector<pair<interval_t,int> >L,R;
+    vector<pair<interval_t, int> > L, R;
     vector<int> P;
-    result_t(){}
-    result_t(vector<pair<interval_t,int> > L, vector<pair<interval_t,int> > R, vector<int> P, vector<stripe_t> S){
+    result_t() {}
+    result_t(vector<pair<interval_t, int> > L, vector<pair<interval_t, int> > R, vector<int> P, vector<stripe_t> S) {
         this->L = L;
         this->R = R;
         this->P = P;
         this->S = S;
-    } 
-}result_t;
+    }
+} result_t;
 
 #ifdef __cplusplus
 }

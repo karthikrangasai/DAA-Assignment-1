@@ -3,7 +3,9 @@ daaaaaaaaaaa
 /problem_statement/*.pdf
 /problem_statement/*.rar
 build/
-visualisations/
+visualisations/images/
+visualisations/inputs/
+visualisations/outputs/
 visualisations_tests/
 time_analysis/
 

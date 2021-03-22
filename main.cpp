@@ -204,14 +204,14 @@ int main(int argc, char const *argv[]) {
             perimeter += s.y_interval.hi - s.y_interval.lo;
         }
     }
-    cout << perimeter << '\n';
+    cout << "# " << perimeter << '\n';
     auto end = chrono::steady_clock::now();
 
     fclose(stdin);
     fclose(stdout);
 
     freopen(argv[3], "w", stdout);
-    cout << n << " " << ans << " " << chrono::duration_cast<chrono::microseconds>(end - start).count() << endl;
+    cout << n << " " << ans << " " << perimeter << " " << chrono::duration_cast<chrono::microseconds>(end - start).count() << endl;
     fclose(stdout);
     return 0;
 }

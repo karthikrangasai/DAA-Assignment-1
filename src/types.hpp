@@ -17,7 +17,7 @@ const int INF = 1e9;  /// Denotes the mathematical value of Infinity.
 
 typedef long double Coord;
 
-/** 
+/**!
  * @brief Interval Type that denotes the mathematical Interval over a single axis, X or Y.
  */
 typedef struct interval_t {
@@ -50,7 +50,7 @@ typedef struct interval_t {
     }
 } interval_t;
 
-/** 
+/**!
  * @brief Rectangle Type that is defined over two Intervals, one for X-axis and other for Y-axis.
  */
 typedef struct rect_t {
@@ -64,7 +64,7 @@ typedef struct rect_t {
     }
 } rect_t;
 
-/** 
+/**!
  * @brief Denotes the side of a rectangle.
  */
 typedef enum edgeType {
@@ -75,7 +75,7 @@ typedef enum edgeType {
     TOP         /** Top edge of the rectangle. */
 } edgeType;
 
-/** 
+/**!
  * @brief Describes the edge of a rectangle using Interval, position, and edgeType.
  */
 typedef struct edge_t {
@@ -109,7 +109,7 @@ typedef struct edge_t {
     }
 } edge_t;
 
-/** 
+/**!
  * @brief Data structure to hold the edges for defining the Y-contour for a single stripe.
  */
 typedef struct tree_t {
@@ -125,7 +125,7 @@ typedef struct tree_t {
     }
 } tree_t;
 
-/** 
+/**!
  * @brief Defines data-type to represent a two dimensional data-structure stripe, confined within two intervals parallel to x and y axes. It holds details of the area and contour of the union of rectangles intersecting with it.
  */
 typedef struct stripe_t {
@@ -145,7 +145,7 @@ typedef struct stripe_t {
     }
 } stripe_t;
 
-/** 
+/**!
  * Defines a data-type to represent a tuple of list of pair of intervals and index, L, 
  * list of pair of intervals and index, R, 
  * list of integers to store coordinates for partition, P 

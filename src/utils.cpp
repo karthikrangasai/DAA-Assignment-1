@@ -111,8 +111,8 @@ vector<stripe_t> concat(const vector<stripe_t> &S1, const vector<stripe_t> &S2, 
 /**
  * @brief Let F1 and F2 be the left and right half frames respectively wrt the vertical frame-divide line at coordinate, xm, of frame F. Given result of left-half frame F1, fh, result of right-half frame F2, sh, a frame-divide coordinate xm, and x-interval of F. Combine outputs, res of data-type result_t, a tuple of list of pair of intervals and index of left-side vertical edges, L, list of pair of intervals and index of right-side vertical edges, R, list of integers to store coordinates for partition, P and, list of stripes S.
  * 
- * @param fh 
- * @param sh 
+ * @param fh Left half tuple(L,R,P,S)
+ * @param sh Right half tuple(L,R,P,S)
  * @param x_ext An X-Interval
  * @param xm An X-Interval
  * @return 
@@ -211,10 +211,10 @@ result_t combine(const result_t &fh, const result_t &sh, const interval_t &x_ext
 /**
  * @brief For a frame F which encloses all the rectangles. Given a list of vertical edges, V, x-interval of frame F, x_ext and current working space of list V, with lo and hi as lowerbound and upperbound respectively. STRIPES outputs a tuple of list of pair of intervals and index of left-side vertical edges, L, list of pair of intervals and index of right-side vertical edges, R, list of integers to store coordinates for partition, P and, list of stripes S. Where S is the final configuration of list of stripes for F.
  * 
- * @param V
- * @param x_ext
- * @param lo
- * @param hi
+ * @param V List of vertical edges.
+ * @param x_ext X-Interval of current frame F.
+ * @param lo Lower bound of the current working space of V.
+ * @param hi Upper bound of the current working space of V.
  * @return 
  */
 result_t STRIPES(const vector<edge_t> &V, interval_t x_ext, int lo, int hi) {
@@ -255,7 +255,7 @@ result_t STRIPES(const vector<edge_t> &V, interval_t x_ext, int lo, int hi) {
 /**
  * @brief Given a list of rectangles, RECT. For a frame F enclosing RECT. Rectangle_DAC initializes a sorted list of vertical edges, VRX and acts as a driver function for the main divide and conquer function, STRIPES, and stores it's output in 'sol' as data-type, result_t. It finally outputs list of stripes, S, in sol.
  * 
- * @param RECT
+ * @param RECT Set of rectangles
  * @return Set of stripes
  */
 vector<stripe_t> Rectangle_DAC(const vector<rect_t> &RECT) {
@@ -275,7 +275,7 @@ vector<stripe_t> Rectangle_DAC(const vector<rect_t> &RECT) {
 /**
  * @brief Given a stripe, s. dfs populates the container J of s with leaf nodes of tree tre in s, with an iterative stack based depth-first-search.
  * 
- * @param s
+ * @param s A single stripe
  */
 void dfs(stripe_t &s) {
     tree_t *node = s.tre;

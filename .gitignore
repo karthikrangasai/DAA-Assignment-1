@@ -1,13 +1,14 @@
 # Custom ignore files
-daaaaaaaaaaa
-/problem_statement/*.pdf
-/problem_statement/*.rar
 build/
+daaaaaaaaaaa
+docs/
+problem_statement/
+tests/
+time_analysis/
 visualisations/images/
 visualisations/inputs/
 visualisations/outputs/
 visualisations_tests/
-time_analysis/
 
 # Prerequisites
 *.d

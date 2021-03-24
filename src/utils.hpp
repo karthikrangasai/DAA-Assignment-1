@@ -1,3 +1,7 @@
+/** @file utils.hpp
+ * @brief Header file for all the function definitions.
+ * @see https://link.springer.com/article/10.1007/BF00264251
+*/
 #ifndef UTILS_H
 #define UTILS_H
 

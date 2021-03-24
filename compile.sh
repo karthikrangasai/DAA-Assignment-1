@@ -3,7 +3,7 @@ mkdir -p build/src
 mkdir -p build/tests
 
 # Compile test case generator
-g++ -Wall -g tests/test_case_generator.cpp -o ./build/tests/test_case_generator.o
+g++ -Wall -g visualisations/test_case_generator.cpp -o ./build/tests/test_case_generator.o
 
 # Compile the source
 echo "> Compiling the source:"

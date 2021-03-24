@@ -4,7 +4,7 @@ import matplotlib.pyplot as plt
 import numpy as np
 
 
-def main(input_filename, output_filename):
+def main(input_filename, output_filename, start, end):
     # with open(os.path.join(os.getcwd(), 'time_analysis/outputs/' + input_folder + '/final_output.txt'), 'r') as file:
     with open(input_filename, 'r') as file:
         points = list()
@@ -14,16 +14,16 @@ def main(input_filename, output_filename):
             points.append(rec_points)
 
         points = np.array(sorted(points, key=lambda k: k[0]))
-        z = np.linspace(10000, 15000, 10000)
+        z = np.linspace(int(start), int(end), 10000)
         plt.plot(points[:, 0], points[:, 3], color='red')
-        plt.plot(z, 10 * z * np.log(z), color='green')
-        plt.plot(z, 15 * z * np.log(z), color='violet')
-        plt.plot(z, 18 * z * np.log(z), color='black')
-        plt.plot(z, 30 * z * np.log(z), color='blue')
-        plt.legend([
-            'Algorithm time complexity', 'Graph of 10nlogn',
-            'Graph of 15nlogn', 'Graph of 18nlogn', 'Graph of 30nlogn'
-        ])
+        plt.plot(z, z * np.log(z), color='violet')
+        plt.plot(z, 10 * z * np.log(z), color='indigo')
+        plt.plot(z, 15 * z * np.log(z), color='blue')
+        plt.plot(z, 18 * z * np.log(z), color='green')
+        plt.plot(z, 30 * z * np.log(z), color='yellow')
+        plt.plot(z, 50 * z * np.log(z), color='orange')
+        plt.legend(['Algorithm time complexity', 'Graph of nlogn', 'Graph of 10nlogn',
+                   'Graph of 15nlogn', 'Graph of 18nlogn', 'Graph of 30nlogn', 'Graph of 50nlogn'])
         plt.xlabel('Number of rectangles')
         plt.ylabel('Running time (microseconds)')
 
@@ -44,5 +44,16 @@ if __name__ == "__main__":
                         type=str,
                         required=True,
                         help='Path to output html file')
+    parser.add_argument('-s',
+                        '--start',
+                        type=str,
+                        required=True,
+                        help='Path to output html file')
+    parser.add_argument('-e',
+                        '--end',
+                        type=str,
+                        required=True,
+                        help='Path to output html file')
     args = vars(parser.parse_args())
-    main(input_filename=args['out_file'], output_filename=args['image'])
+    main(input_filename=args['out_file'], output_filename=args['image'],
+         start=args['start'], end=args['end'])

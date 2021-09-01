@@ -142,7 +142,7 @@ result_t combine(const result_t &fh, const result_t &sh, const interval_t &x_ext
     while (r < (int)P2.size()) P.push_back(P2[r++]);
     P.resize(distance(P.begin(), unique(P.begin(), P.end())));
 
-    // get L1\LR and R2\LR in one go
+    // get Ls = L1\LR and Rs = R2\LR in one go
     vector<pair<interval_t, int> > Ls, Rs;
     l = 0, r = 0;
     while (l < (int)L1.size() and r < (int)R2.size()) {

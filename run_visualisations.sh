@@ -34,9 +34,9 @@ do
 	./build/tests/test_case_generator.o $i ./tests/inputs/$folder_name/in$i.txt $distribution
 	./daaaaaaaaaaa ./tests/inputs/$folder_name/in$i.txt ./tests/outputs/$folder_name/out$i.txt ./tests/outputs/$folder_name/out$i"_details".txt
 	cat ./tests/outputs/$folder_name/out$i"_details".txt >> ./tests/outputs/$folder_name/final_output.txt
-	# python3 visualization.py -i ./tests/inputs/$folder_name/in$i.txt -o ./tests/outputs/$folder_name/out$i.txt -img ./tests/images/$folder_name/$i.png
-	# echo "    Generated output for test case: Input - $i, Distribution - $distribution"
-	# sleep 1
+	python3 visualization.py -i ./tests/inputs/$folder_name/in$i.txt -o ./tests/outputs/$folder_name/out$i.txt -img ./tests/images/$folder_name/$i.png
+	echo "    Generated output for test case: Input - $i, Distribution - $distribution"
+	sleep 1
 done
 echo "Outputs generation done."
 
